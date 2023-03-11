@@ -1,5 +1,5 @@
 class Node {
-  constructor(data, next) {
+  constructor(data) {
     this.data = data;
     this.next = null;
   }
@@ -62,7 +62,7 @@ class linkedList {
   removeAt(index) {
     if (index < 0) throw new Error("Index have to be greater than 0");
     if (index > this.size - 1)
-      throw new Error("Index can't be greater than lists size - 1");
+      throw new Error("Index can't be greater than or equal to lists size");
 
     let prev = this.head;
 
@@ -87,7 +87,6 @@ class linkedList {
     curr.next = null;
     this.tail = curr;
     this.size--;
-    return curr;
   }
 
   at(index) {
@@ -150,12 +149,3 @@ class linkedList {
     this.head = prev;
   }
 }
-
-const list = new linkedList();
-list.append(50);
-list.append(100);
-list.prepend(25);
-list.insertAt(75, 2);
-list.reverse();
-list.insertAt(80, 4);
-console.log(list.toString());
