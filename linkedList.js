@@ -6,7 +6,7 @@ class Node {
 }
 
 class linkedList {
-  constructor(head, tail, size) {
+  constructor() {
     this.head = null;
     this.tail = null;
     this.size = 0;
@@ -41,6 +41,10 @@ class linkedList {
   }
 
   insertAt(value, index) {
+    if (index < 0) throw new Error("Index have to be greater than 0");
+    if (index > this.size)
+      throw new Error("Index can't be greater than lists size");
+
     if (index === 0) this.prepend(value);
     else {
       let prev = this.head;
@@ -53,6 +57,26 @@ class linkedList {
       prev.next = node;
       this.size++;
     }
+  }
+
+  removeAt(index) {
+    if (index < 0) throw new Error("Index have to be greater than 0");
+    if (index > this.size - 1)
+      throw new Error("Index can't be greater than lists size - 1");
+
+    let prev = this.head;
+
+    if (index === 0) {
+      this.head = prev.next;
+    } else {
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      const next = prev.next.next;
+      prev.next = next;
+    }
+
+    this.size--;
   }
 
   pop() {
@@ -111,6 +135,20 @@ class linkedList {
     }
     throw new Error("List is empty!");
   }
+
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+
+    while (curr) {
+      let next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.tail = this.head;
+    this.head = prev;
+  }
 }
 
 const list = new linkedList();
@@ -118,4 +156,6 @@ list.append(50);
 list.append(100);
 list.prepend(25);
 list.insertAt(75, 2);
+list.reverse();
+list.insertAt(80, 4);
 console.log(list.toString());
