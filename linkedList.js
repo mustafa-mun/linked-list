@@ -40,6 +40,12 @@ class linkedList {
     this.size++;
   }
 
+  insertAt(value, index) {
+    // Find the index - 1th element (prev element)
+    // Set new nodes next to prev element
+    // Set prev elements next to new node
+  }
+
   pop() {
     let curr = this.head;
     while (curr.next !== this.tail) {
