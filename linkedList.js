@@ -71,10 +71,21 @@ class linkedList {
     }
     return false;
   }
+
+  find(value) {
+    let curr = this.head;
+    let index = -1;
+    while (curr) {
+      index++;
+      if (curr.data === value) return index;
+      curr = curr.next;
+    }
+    return null;
+  }
 }
 
 const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
-console.log(list);
+console.log(list.find(21));
