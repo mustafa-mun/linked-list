@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class linkedList {
+class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -14,6 +14,20 @@ class linkedList {
 
   getSize() {
     return this.size;
+  }
+
+  getHead() {
+    if (this.size > 0) {
+      return this.head.data;
+    }
+    return null;
+  }
+
+  getTail() {
+    if (this.size > 0) {
+      return this.tail.data;
+    }
+    return null;
   }
 
   append(value) {
