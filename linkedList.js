@@ -82,10 +82,24 @@ class linkedList {
     }
     return null;
   }
+
+  toString() {
+    if (this.size > 0) {
+      let str = "";
+      let curr = this.head;
+
+      while (curr) {
+        str += `( ${curr.data} ) -> `;
+        curr = curr.next;
+      }
+      return str + "null";
+    }
+    throw new Error("List is empty!");
+  }
 }
 
 const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
-console.log(list.find(21));
+console.log(list.toString());
