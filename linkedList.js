@@ -42,7 +42,7 @@ class linkedList {
 
   at(index) {
     if (index < 0) throw new Error("Index have to be greater than 0");
-    if (index > this.size - 1) return null
+    if (index > this.size - 1) return null;
 
     let curr = this.head;
     for (let i = 0; i < index; i++) {
@@ -50,10 +50,20 @@ class linkedList {
     }
     return curr.data;
   }
+
+  contains(value) {
+    let curr = this.head;
+
+    while (curr) {
+      if (value === curr.data) return true;
+      curr = curr.next;
+    }
+    return false;
+  }
 }
 
 const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
-console.log(list.at(2));
+
