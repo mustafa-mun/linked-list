@@ -40,6 +40,17 @@ class linkedList {
     this.size++;
   }
 
+  pop() {
+    let curr = this.head;
+    while (curr.next !== this.tail) {
+      curr = curr.next;
+    }
+    curr.next = null;
+    this.tail = curr;
+    this.size--;
+    return curr;
+  }
+
   at(index) {
     if (index < 0) throw new Error("Index have to be greater than 0");
     if (index > this.size - 1) return null;
@@ -66,4 +77,4 @@ const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
-
+console.log(list);
