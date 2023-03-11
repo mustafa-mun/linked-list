@@ -12,6 +12,10 @@ class linkedList {
     this.size = 0;
   }
 
+  getSize() {
+    return this.size;
+  }
+
   append(value) {
     const node = new Node(value);
     if (this.size === 0) {
@@ -35,10 +39,21 @@ class linkedList {
     }
     this.size++;
   }
+
+  at(index) {
+    if (index < 0) throw new Error("Index have to be greater than 0");
+    if (index > this.size - 1) return null
+
+    let curr = this.head;
+    for (let i = 0; i < index; i++) {
+      curr = curr.next;
+    }
+    return curr.data;
+  }
 }
 
 const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
-console.log(list);
+console.log(list.at(2));
