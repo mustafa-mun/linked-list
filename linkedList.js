@@ -18,14 +18,14 @@ class LinkedList {
 
   getHead() {
     if (this.size > 0) {
-      return this.head.data;
+      return this.head;
     }
     return null;
   }
 
   getTail() {
     if (this.size > 0) {
-      return this.tail.data;
+      return this.tail;
     }
     return null;
   }
@@ -111,7 +111,7 @@ class LinkedList {
     for (let i = 0; i < index; i++) {
       curr = curr.next;
     }
-    return curr.data;
+    return curr;
   }
 
   contains(value) {
