@@ -95,6 +95,7 @@ class LinkedList {
 
   pop() {
     let curr = this.head;
+    
     while (curr.next !== this.tail) {
       curr = curr.next;
     }
