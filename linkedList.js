@@ -41,9 +41,18 @@ class linkedList {
   }
 
   insertAt(value, index) {
-    // Find the index - 1th element (prev element)
-    // Set new nodes next to prev element
-    // Set prev elements next to new node
+    if (index === 0) this.prepend(value);
+    else {
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      const nextValue = prev.next;
+      const node = new Node(value);
+      node.next = nextValue;
+      prev.next = node;
+      this.size++;
+    }
   }
 
   pop() {
@@ -108,4 +117,5 @@ const list = new linkedList();
 list.append(50);
 list.append(100);
 list.prepend(25);
+list.insertAt(75, 2);
 console.log(list.toString());
