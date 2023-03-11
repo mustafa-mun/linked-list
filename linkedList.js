@@ -17,11 +17,11 @@ class linkedList {
     if (this.size === 0) {
       this.head = node;
       this.tail = node;
-      this.size++;
     } else {
-      this.tail.next = node
-      this.tail = node
+      this.tail.next = node;
+      this.tail = node;
     }
+    this.size++;
   }
 
   prepend(value) {
@@ -29,17 +29,16 @@ class linkedList {
     if (this.size === 0) {
       this.head = node;
       this.tail = node;
-      this.size++;
     } else {
       node.next = this.head;
       this.head = node;
-      this.size++;
     }
+    this.size++;
   }
 }
 
 const list = new linkedList();
-list.prepend(50);
+list.append(50);
+list.append(100);
 list.prepend(25);
-list.append(75)
 console.log(list);
